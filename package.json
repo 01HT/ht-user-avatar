@@ -1,0 +1,15 @@
+{
+  "name": "ht-user-avatar",
+  "version": "1.0.0",
+  "main": "ht-user-avatar.js",
+  "repository": "https://github.com/maksimyurkov/ht-user-avatar",
+  "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/lit-element": "@next",
+    "@polymer/paper-tooltip": "@next",
+    "@polymer/iron-icon": "@next",
+    "@polymer/iron-iconset-svg": "@next",
+    "ht-image": "https://github.com/maksimyurkov/ht-image"
+  }
+}
