@@ -5,7 +5,7 @@ import "@polymer/iron-icon";
 import "@polymer/paper-tooltip";
 import "ht-image";
 class HTUserAvatar extends LitElement {
-  render({ data, size, verifiedSize }) {
+  _render({ data, size, verifiedSize }) {
     return html`
       <style>
         :host {
