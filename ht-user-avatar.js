@@ -22,8 +22,6 @@ class HTUserAvatar extends LitElement {
         ht-image {
           overflow:hidden;
           border-radius:50%;
-          width:${size}px;
-          height:${size}px;
         }
 
         iron-icon {
@@ -33,8 +31,6 @@ class HTUserAvatar extends LitElement {
           border-radius: 50%;
           background: #fff;
           color: var(--accent-color);
-          width:${verifiedSize}px;
-          height:${verifiedSize}px;
         }
 
         [hidden] {
@@ -52,8 +48,8 @@ class HTUserAvatar extends LitElement {
         <a href="/user/${data.nickname}">
           <ht-image placeholder=${data.photoURL} image=${
       data.photoURL
-    }></ht-image>
-          <iron-icon icon="ht-user-avatar:check-circle" hidden?=${!data.verified}></iron-icon>
+    } style=${`width: ${size}px;height:${size}px;`}></ht-image>
+          <iron-icon icon="ht-user-avatar:check-circle" hidden?=${!data.verified} style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
           <paper-tooltip position="right" animation-delay="0" offset="4" hidden?=${!data.verified}>Проверенный пользователь</paper-tooltip>
         </a>
       </div>
