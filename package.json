@@ -6,10 +6,10 @@
   "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@polymer/lit-element": "@next",
-    "@polymer/paper-tooltip": "@next",
-    "@polymer/iron-icon": "@next",
-    "@polymer/iron-iconset-svg": "@next",
+    "@polymer/lit-element": "^0.5.1",
+    "@polymer/paper-tooltip": "^3.0.0-pre.18",
+    "@polymer/iron-icon": "^3.0.0-pre.18",
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
     "ht-image": "https://github.com/maksimyurkov/ht-image"
   }
 }
