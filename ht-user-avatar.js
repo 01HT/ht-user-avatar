@@ -45,7 +45,7 @@ class HTUserAvatar extends LitElement {
         </svg>
       </iron-iconset-svg>
       <div id="container">
-        <a href="/user/${data.nickname}">
+        <a href="/user/${data.nickname}/${data.userId}">
           <ht-image placeholder=${data.photoURL} image=${
       data.photoURL
     } style=${`width: ${size}px;height:${size}px;`}></ht-image>
