@@ -1,15 +1,15 @@
 {
-  "name": "ht-user-avatar",
+  "name": "@01ht/ht-user-avatar",
   "version": "1.0.0",
   "main": "ht-user-avatar.js",
-  "repository": "https://github.com/maksimyurkov/ht-user-avatar",
-  "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
-  "license": "MIT",
+  "repository": "01ht/ht-user-avatar",
+  "author": "01ht Ltd",
+  "license": "UNLICENSED",
   "dependencies": {
     "@polymer/lit-element": "^0.5.1",
     "@polymer/paper-tooltip": "^3.0.0-pre.18",
     "@polymer/iron-icon": "^3.0.0-pre.18",
     "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
-    "ht-image": "https://github.com/maksimyurkov/ht-image"
+    "@01ht/ht-image": "^1.0.0"
   }
 }
