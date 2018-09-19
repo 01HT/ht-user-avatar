@@ -1,15 +1,15 @@
 {
   "name": "@01ht/ht-user-avatar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "ht-user-avatar.js",
   "repository": "01ht/ht-user-avatar",
-  "author": "01ht Ltd",
+  "author": "01HT Ltd",
   "license": "UNLICENSED",
   "dependencies": {
-    "@polymer/lit-element": "^0.5.1",
-    "@polymer/paper-tooltip": "^3.0.0-pre.18",
-    "@polymer/iron-icon": "^3.0.0-pre.18",
-    "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
+    "@polymer/lit-element": "^0.6.1",
+    "@polymer/paper-tooltip": "^3.0.1",
+    "@polymer/iron-icon": "^3.0.1",
+    "@polymer/iron-iconset-svg": "^3.0.1",
     "@01ht/ht-image": "^1.0.0"
   }
 }

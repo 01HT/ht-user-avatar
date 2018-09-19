@@ -4,8 +4,11 @@ import "@polymer/iron-iconset-svg";
 import "@polymer/iron-icon";
 import "@polymer/paper-tooltip";
 import "@01ht/ht-image";
+
 class HTUserAvatar extends LitElement {
-  _render({ data, size, verifiedSize }) {
+  render() {
+    const { data, size, verifiedSize } = this;
+    if (data.uid === undefined) return;
     return html`
       <style>
         :host {
@@ -24,10 +27,14 @@ class HTUserAvatar extends LitElement {
           border-radius:50%;
         }
 
-        iron-icon {
+        div#verified {
+          display:flex;
           position: absolute;
           bottom: 0;
           right: 0;
+        }
+
+        iron-icon {
           border-radius: 50%;
           background: #fff;
           color: var(--accent-color);
@@ -44,13 +51,22 @@ class HTUserAvatar extends LitElement {
           </defs>
         </svg>
       </iron-iconset-svg>
-      <div id="container">
-        <a href="/user/${data.nickname}/${data.userId}">
-          <ht-image placeholder=${data.photoURL} image=${
-      data.photoURL
-    } style=${`width: ${size}px;height:${size}px;`}></ht-image>
-          <iron-icon icon="ht-user-avatar:check-circle" hidden?=${!data.verified} style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
-          <paper-tooltip position="right" animation-delay="0" offset="4" hidden?=${!data.verified}>Проверенный пользователь</paper-tooltip>
+      <div id="container" style="width:${size}px;height:${size}px">
+        <a href="/${data.isOrg ? "organization" : "user"}/${data.uid}">
+      <ht-image placeholder="${cloudinaryURL}/c_scale,f_auto,h_32,w_32/v${
+      data.avatar.version
+    }/${data.avatar.public_id}.${
+      data.avatar.format
+    }" image="${cloudinaryURL}/c_scale,f_auto,h_${size * 2},w_${size * 2}/v${
+      data.avatar.version
+    }/${data.avatar.public_id}.${
+      data.avatar.format
+    }" style=${`width: ${size}px;height:${size}px;`}></ht-image>
+          <div id="verified">
+            <iron-icon icon="ht-user-avatar:check-circle" ?hidden=${!data.verified} style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
+          <paper-tooltip position="right" animation-delay="0" offset="4" ?hidden=${!data.verified}>Проверенный пользователь</paper-tooltip>
+          </div>
+          
         </a>
       </div>
 `;
@@ -62,9 +78,9 @@ class HTUserAvatar extends LitElement {
 
   static get properties() {
     return {
-      data: Object,
-      size: Number,
-      verifiedSize: Number
+      data: { type: Object },
+      size: { type: Number },
+      verifiedSize: { type: Number }
     };
   }
 
