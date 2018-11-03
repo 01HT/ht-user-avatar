@@ -61,7 +61,9 @@ class HTUserAvatar extends LitElement {
       data.avatar.version
     }/${data.avatar.public_id}.${
       data.avatar.format
-    }" style=${`width: ${size}px;height:${size}px;`}></ht-image>
+    }" style=${`width: ${size}px;height:${size}px;`} .altText=${
+      data.displayName
+    }></ht-image>
           <div id="verified">
             <iron-icon icon="ht-user-avatar:check-circle" ?hidden=${!data.verified} style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
           <paper-tooltip position="right" animation-delay="0" offset="4" ?hidden=${!data.verified}>Проверенный пользователь</paper-tooltip>
