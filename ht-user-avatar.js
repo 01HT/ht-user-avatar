@@ -52,7 +52,9 @@ class HTUserAvatar extends LitElement {
         </svg>
       </iron-iconset-svg>
       <div id="container" style="width:${size}px;height:${size}px">
-        <a href="/${data.isOrg ? "organization" : "user"}/${data.uid}">
+        <a href="/${data.isOrg ? "organization" : "user"}/${data.nameInURL}/${
+      data.isOrg ? `${data.organizationNumber}` : `${data.userNumber}`
+    }">
       <ht-image placeholder="${cloudinaryURL}/c_scale,f_auto,h_32,w_32/v${
       data.avatar.version
     }/${data.avatar.public_id}.${
