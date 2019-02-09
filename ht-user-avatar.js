@@ -1,16 +1,12 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import "@polymer/iron-iconset-svg";
 import "@polymer/iron-icon";
 import "@polymer/paper-tooltip";
 import "@01ht/ht-image";
 
 class HTUserAvatar extends LitElement {
-  render() {
-    const { data, size, verifiedSize } = this;
-    if (data.uid === undefined) return;
-    return html`
-      <style>
+  static styles = css`<style>
         :host {
           display: block;
           position:relative;
@@ -43,7 +39,12 @@ class HTUserAvatar extends LitElement {
         [hidden] {
           display: none;
         }
-      </style>
+      </style>`;
+
+  render() {
+    const { data, size, verifiedSize } = this;
+    if (data.uid === undefined) return;
+    return html`
       <iron-iconset-svg size="24" name="ht-user-avatar">
         <svg>
           <defs>
@@ -67,17 +68,13 @@ class HTUserAvatar extends LitElement {
       data.displayName
     }></ht-image>
           <div id="verified">
-            <iron-icon icon="ht-user-avatar:check-circle" ?hidden=${!data.verified} style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
-          <paper-tooltip position="right" animation-delay="0" offset="4" ?hidden=${!data.verified}>Проверенный пользователь</paper-tooltip>
+            <iron-icon icon="ht-user-avatar:check-circle" ?hidden="${!data.verified}" style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
+          <paper-tooltip position="right" animation-delay="0" offset="4" ?hidden="${!data.verified}">Проверенный пользователь</paper-tooltip>
           </div>
           
         </a>
       </div>
 `;
-  }
-
-  static get is() {
-    return "ht-user-avatar";
   }
 
   static get properties() {
@@ -96,4 +93,4 @@ class HTUserAvatar extends LitElement {
   }
 }
 
-customElements.define(HTUserAvatar.is, HTUserAvatar);
+customElements.define("ht-user-avatar", HTUserAvatar);
