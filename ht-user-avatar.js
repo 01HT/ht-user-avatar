@@ -17,6 +17,10 @@ class HTUserAvatar extends LitElement {
           position: relative;
         }
 
+        a {
+          outline: none;
+        }
+
         ht-image {
           overflow: hidden;
           border-radius: 50%;
