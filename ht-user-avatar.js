@@ -5,26 +5,25 @@ import "@polymer/iron-icon";
 import "@polymer/paper-tooltip";
 import "@01ht/ht-image";
 
-class HTUserAvatar extends LitElement {
-  static styles = css`<style>
-        :host {
-          display: block;
-          position:relative;
-          box-sizing:border-box;
-        }
+import { stylesBasicWebcomponents } from "@01ht/ht-theme/styles";
 
+class HTUserAvatar extends LitElement {
+  static get styles() {
+    return [
+      stylesBasicWebcomponents,
+      css`
         #container {
-          width:100%;
-          position:relative;
+          width: 100%;
+          position: relative;
         }
 
         ht-image {
-          overflow:hidden;
-          border-radius:50%;
+          overflow: hidden;
+          border-radius: 50%;
         }
 
-        div#verified {
-          display:flex;
+        #verified {
+          display: flex;
           position: absolute;
           bottom: 0;
           right: 0;
@@ -39,11 +38,12 @@ class HTUserAvatar extends LitElement {
         [hidden] {
           display: none;
         }
-      </style>`;
+      `
+    ];
+  }
 
   render() {
     const { data, size, verifiedSize } = this;
-    if (data.uid === undefined) return;
     return html`
       <iron-iconset-svg size="24" name="ht-user-avatar">
         <svg>
@@ -64,14 +64,13 @@ class HTUserAvatar extends LitElement {
       data.avatar.version
     }/${data.avatar.public_id}.${
       data.avatar.format
-    }" style=${`width: ${size}px;height:${size}px;`} .altText=${
+    }" style="${`width: ${size}px;height:${size}px;`}" .altText=${
       data.displayName
     }></ht-image>
           <div id="verified">
-            <iron-icon icon="ht-user-avatar:check-circle" ?hidden="${!data.verified}" style=${`width: ${verifiedSize}px;height:${verifiedSize}px;`}></iron-icon>
+            <iron-icon icon="ht-user-avatar:check-circle" ?hidden="${!data.verified}" style="${`width: ${verifiedSize}px;height:${verifiedSize}px;`}"></iron-icon>
           <paper-tooltip position="right" animation-delay="0" offset="4" ?hidden="${!data.verified}">Проверенный пользователь</paper-tooltip>
           </div>
-          
         </a>
       </div>
 `;
@@ -90,6 +89,13 @@ class HTUserAvatar extends LitElement {
     this.data = {};
     this.size = 42;
     this.verifiedSize = 16;
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has("data")) {
+      if (this.data.uid === undefined) return false;
+    }
+    return true;
   }
 }
 
