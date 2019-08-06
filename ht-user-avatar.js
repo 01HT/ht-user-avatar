@@ -60,13 +60,15 @@ class HTUserAvatar extends LitElement {
         <a href="/${data.isOrg ? "organization" : "user"}/${data.nameInURL}/${
       data.isOrg ? `${data.organizationNumber}` : `${data.userNumber}`
     }">
-      <ht-image placeholder="${cloudinaryURL}/c_scale,f_auto,h_32,w_32/v${
-      data.avatar.version
-    }/${data.avatar.public_id}.${
-      data.avatar.format
-    }" image="${cloudinaryURL}/c_scale,f_auto,h_${size * 2},w_${size * 2}/v${
-      data.avatar.version
-    }/${data.avatar.public_id}.${
+      <ht-image placeholder="${
+        window.appConfig.cloudinary.url
+      }/c_scale,f_auto,h_32,w_32/v${data.avatar.version}/${
+      data.avatar.public_id
+    }.${data.avatar.format}" image="${
+      window.appConfig.cloudinary.url
+    }/c_scale,f_auto,h_${size * 2},w_${size * 2}/v${data.avatar.version}/${
+      data.avatar.public_id
+    }.${
       data.avatar.format
     }" style="${`width: ${size}px;height:${size}px;`}" .altText=${
       data.displayName
